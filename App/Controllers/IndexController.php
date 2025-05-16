@@ -7,7 +7,7 @@ class IndexController
     public function __construct()
     {
         //OPERACIONES
-        $users = (new User())->getAll();
+        $users = User::get();
 
         var_dump($users);
 
