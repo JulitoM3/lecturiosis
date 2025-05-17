@@ -6,7 +6,7 @@ interface Model
 {
 
     public function save();
-    public function delete();
+    public function delete($id);
     public function findById($id);
 
 }

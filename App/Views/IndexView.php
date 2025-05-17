@@ -11,12 +11,15 @@
     <div class="container mt-5">
         <h1 class="mb-4">Gestión de Usuarios</h1>
 
-        <div class="d-flex justify-content-between mb-3">
-            <div class="input-group w-50">
-                <input type="text" class="form-control" id="searchInput"
-                    placeholder="Buscar usuario por nombre o correo">
-                <button class="btn btn-outline-secondary" onclick="buscarUsuario()">Buscar</button>
-            </div>
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+            <form action="./../Actions/SearchUser.php" method="POST" class="d-flex w-100 w-md-50 me-md-3 mb-2 mb-md-0">
+                <div class="input-group w-100">
+                    <input type="text" class="form-control" name="searchInput"
+                        placeholder="Buscar usuario por nombre o correo">
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </div>
+            </form>
+
             <a href="crear_usuario.php" class="btn btn-primary">Crear Usuario</a>
         </div>
 
@@ -37,8 +40,11 @@
                             <td><?= htmlspecialchars($user['name']) ?></td>
                             <td><?= htmlspecialchars($user['email']) ?></td>
                             <td>
-                                <a href="eliminar_usuario.php?id=<?= $user['id'] ?>" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Seguro que deseas eliminar este usuario?')">Eliminar</a>
+                                <form action="./App/Actions/DeleteUser.php" method="post">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
+                                    <input type="submit" value="Eliminar" class="btn btn-danger">
+                                </form>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

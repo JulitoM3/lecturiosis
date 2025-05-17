@@ -2,16 +2,27 @@
 
 namespace App\Models;
 
-use BaseModel;
+use App\Models\Model;
 
-class User extends BaseModel
+class User extends Model
 {
 
-    protected $table = 'users';
+    protected static $table = 'users';
 
     private $id;
     private $name;
     private $email;
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
 
 
 

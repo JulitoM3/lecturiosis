@@ -7,9 +7,8 @@ class IndexController
     public function __construct()
     {
         //OPERACIONES
-        $users = User::get();
+        $users = User::get() ?? [];
 
-        var_dump($users);
 
         //LLAMADA A UNA VISTA
         require('./App/Views/IndexView.php');
