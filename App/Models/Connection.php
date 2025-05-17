@@ -7,7 +7,7 @@ class Connection
 
     public static $instance = null;
 
-    private function __construc()
+    private function __construct()
     {
     }
 
@@ -31,7 +31,7 @@ class Connection
                     \PDO::ERRMODE_EXCEPTION
                 );
             } catch (\Throwable $th) {
-                echo "Error de conexión: " . $th->getMessage();
+                echo "Error de conexión: " . $th->getMessage() . $th->getLine();
                 exit;
             }
         }
